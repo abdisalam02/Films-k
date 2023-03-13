@@ -1,15 +1,16 @@
 import React from 'react';
+import PlaceholderImage from '../components/placeholder.png';
 
 function MovieList({ movies, searchTerm }) {
     console.log(searchTerm);
 
     const handleImageError = (event) => {
         // If the image fails to load, set the source to the placeholder image
-        event.target.src = 'https://via.placeholder.com/150x225.png?text=No+Poster+Available';
+        event.target.src = PlaceholderImage;
       };
   return (
     <>
-      <h1>{searchTerm}</h1>
+      <h1 className='results'>"{searchTerm}"</h1>
       <div className='container'>
         {movies.map((movie) => (
           <div key={movie.imdbID} className="movie">

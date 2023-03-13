@@ -14,12 +14,23 @@ html{
     align-items: center;
     flex-wrap: wrap;
   }
+
+  a{
+    text-decoration: none;
+
+  }
+  .results{
+    color: #61dafb;
+  }
   
   .notflix{
     font-size: 60px;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #61dafb;
     box-shadow: 10px 10px 10px rgba(50, 204, 225, 0.1);
+    &:hover{
+        color: #ffffff;
+    }
   }
   
   .search{
@@ -34,23 +45,34 @@ html{
   }
   
   .search input{
-    width: 100%;
+    width: 80%;
     
     justify-content: center;
-    padding: 30px;
+    padding: 15px 24px;
     border-radius: 10px;
     border: none;
-    // font-size: 1rem;
+     font-size: 30px;
+  }
+  .search input:hover{
+    background-color:#0000007b;
+    color:  #61dafb;
   }
   .movie{
     /* width: 310px;
     height: 460px; */
+    max-width: 300px;
     margin: 1.5rem;
     position: relative;
     border-radius: 12px;
     overflow: hidden;
     border: none;
     box-shadow: 10px 20px 15px -3px rgba(196, 50, 225, 0.1);
+    background-color: #0b9cc574;
+
+    &:hover{
+        transform: scale(1.03, 1.03);
+        cursor: pointer;
+    }
   }
   .movie img{
     width: 300px;
@@ -61,6 +83,7 @@ html{
     color: #ffffff;
     justify-content: center;
     align-items: center;
+    padding: 5px;
   }
 //   .btn{
 //     margin: 5px;
@@ -69,8 +92,9 @@ html{
 //   }
 .button {
     display: inline-block;
-    padding: 12px 24px;
+    padding: 15px 24px;
     border: 2px solid #000000;
+    border-radius: 10px;
     background-color: #ffffff;
     color: #000000;
     font-size: 16px;
@@ -80,11 +104,12 @@ html{
     letter-spacing: 2px;
     transition: all 0.3s ease;
     cursor: pointer;
+    margin: 10px;
   }
   
   .button:hover {
-    background-color: #135164;
-    color: #ffffff;
+    background-color: #61dafb;
+    color: #000000;
   }
   
   .button:focus {

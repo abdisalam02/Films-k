@@ -7,7 +7,7 @@ export default function SearchBar({searchTerm, onSearchTermChange, onSearchSubmi
 //    </div>
 <div className="search">
 <form onSubmit={onSearchSubmit}>
-      <input type="text" value={searchTerm} onChange={onSearchTermChange} />
+      <input type="text" placeholder="search for a movie..." value={searchTerm} onChange={onSearchTermChange} />
       <button type="submit" className="button">Search</button>
     </form>
 </div>

@@ -14,6 +14,8 @@ const BASE_URL = 'https://www.omdbapi.com/';
 function App() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const[info, setInfo] = useState([]);
+  
   useEffect(() => {
     async function fetchMovies() {
       const url = `https://www.omdbapi.com/?s=james+bond&apikey=dba6a593`;
@@ -48,7 +50,9 @@ function App() {
   }
   return (
  <div className='container'>
+  <a href='/' className=''>
   <h1 className='notflix'>Not-flix</h1>
+  </a>
   <SearchBar
    searchTerm={searchTerm}
    onSearchTermChange={handleSearchTermChange}
