@@ -15,13 +15,13 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const[info, setInfo] = useState([]);
-  
+
   useEffect(() => {
     async function fetchMovies() {
-      const url = `https://www.omdbapi.com/?s=james+bond&apikey=dba6a593`;
+      const url = `https://www.omdbapi.com/?s=james+bond&apikey=dba6a593&type=movie`;
       const response = await fetch(url);
       const data = await response.json();
-      const movieResults = data.Search.filter((result) => result.Type === "movie");
+      // const movieResults = data.Search.filter((result) => result.Type === "movie");
       if (data.Search) {
         const movies = data.Search.slice(0, 10);
         setMovies(movies);
@@ -36,7 +36,7 @@ function App() {
 
   const handleSearchSubmit = async (event) => {
     event.preventDefault();
-    if (searchTerm.length >= 3) {
+    if (searchTerm.length >= 2) {
       const url = `${BASE_URL}?s=${searchTerm}&apikey=${API_KEY}`;
       const response = await fetch(url);
       const data = await response.json();

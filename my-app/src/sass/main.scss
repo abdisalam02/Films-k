@@ -36,7 +36,7 @@ html{
   .search{
      width: 100%;
      max-width: 100%;
-    margin: 4rem;
+    margin: 1rem;
     // display: flex;
     justify-content: center;
     align-items: center;
@@ -46,16 +46,21 @@ html{
   
   .search input{
     width: 80%;
-    
+    height: 100%;
     justify-content: center;
-    padding: 15px 24px;
+    padding: 10px 10px;
     border-radius: 10px;
     border: none;
      font-size: 30px;
   }
   .search input:hover{
-    background-color:#0000007b;
-    color:  #61dafb;
+    background-color: #61dafb;
+    color:  #000000;
+  }
+  .search img{
+    width: 35px;
+    height: 35px;
+
   }
   .movie{
     /* width: 310px;
@@ -92,19 +97,22 @@ html{
 //   }
 .button {
     display: inline-block;
-    padding: 15px 24px;
+    padding: 10px 10px;
     border: 2px solid #000000;
     border-radius: 10px;
     background-color: #ffffff;
     color: #000000;
-    font-size: 16px;
-    font-weight: 600;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
     transition: all 0.3s ease;
     cursor: pointer;
-    margin: 10px;
+    margin: 0;
+  }
+
+  .button img{
+    width: 30px;
+    height: 30px;
   }
   
   .button:hover {
@@ -119,4 +127,81 @@ html{
   .button:active {
     transform: translateY(2px);
   }
+  form{
+    display: flex;
+    margin: 0;
+    justify-content: center;
+  }
+  @media only screen and (max-width:500px) {
+
+    .search input{
+        font-size: 20px;
+    }
+    .search{
+        margin: 0;
+    }
+
+    .button img{
+        width: 20px;
+        height: 20px;
+    }
+  }
   
+  @media only screen and (max-width:370px) {
+
+    .movie{
+        /* width: 310px;
+        height: 460px; */
+        max-width: 300px;
+        margin: 1.5rem;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+        border: none;
+        box-shadow: 10px 20px 15px -3px rgba(196, 50, 225, 0.1);
+        background-color: #0b9cc574;
+    
+        &:hover{
+            transform: scale(1.03, 1.03);
+            cursor: pointer;
+        }
+      }
+      .movie img{
+        width: 95%;
+        height: 95%;
+      }
+
+      .search{
+        width: 100%;
+        max-width: 100%;
+       margin: 0rem;
+    //    display: flex;
+       justify-content: center;
+       align-items: center;
+       padding: 1rem;
+       border-radius: 3rem;
+     }
+     
+     .search input{
+       width: 70%;
+       
+       justify-content: center;
+       padding: 15px 24px;
+       border-radius: 10px;
+       border: none;
+        font-size:15px;
+     }
+     .button {
+         display: inline-block;
+        padding: 10px 10px;
+        border: 2px solid #000000;
+        border-radius: 10px;
+        background-color: #ffffff;
+        color: #000000;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        // margin: 10px;
+      }
+
+    
+  }
