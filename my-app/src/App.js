@@ -6,8 +6,8 @@ import MovieList from './components/MovieCard';
 import SearchBar from './components/SearchResults';
 
 // const API_URL = 'http://www.omdbapi.com?apikey=dba6a593';
-const API_KEY = 'dba6a593';
-const BASE_URL = 'https://www.omdbapi.com/';
+const KEY = 'dba6a593';
+const URL = 'https://www.omdbapi.com/';
 
 
 
@@ -30,14 +30,14 @@ function App() {
     }
     fetchMovies();
   }, []);
-  const handleSearchTermChange = (event) => {
+  const SearchChange = (event) => {
     setSearchTerm(event.target.value);
   }
 
-  const handleSearchSubmit = async (event) => {
+  const SearchSubmit = async (event) => {
     event.preventDefault();
     if (searchTerm.length >= 2) {
-      const url = `${BASE_URL}?s=${searchTerm}&apikey=${API_KEY}`;
+      const url = `${URL}?s=${searchTerm}&apikey=${KEY}`;
       const response = await fetch(url);
       const data = await response.json();
       if (data.Search) {
@@ -55,8 +55,8 @@ function App() {
   </a>
   <SearchBar
    searchTerm={searchTerm}
-   onSearchTermChange={handleSearchTermChange}
-   onSearchSubmit={handleSearchSubmit}
+   onSearchChange={SearchChange}
+   onSearchSubmit={SearchSubmit}
  /> 
 
  <MovieList movies={movies} searchTerm={searchTerm}/>

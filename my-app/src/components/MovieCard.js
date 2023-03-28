@@ -7,7 +7,7 @@ function MovieList({ movies, searchTerm }) {
     console.log(searchTerm);
 
     const handleImageError = (event) => {
-        // If the image fails to load, set the source to the placeholder image
+        // Setter en placeholder image vis moviecard ikke har et bilde.
         event.target.src = PlaceholderImage;
       };
 
@@ -31,6 +31,10 @@ function MovieList({ movies, searchTerm }) {
               {/* <Link to={`/movie/${movie.imdbID}`}>
   <MovieProfile movieId={movie.imdbID} />
 </Link> */}
+{/* <a href="">More</a> */}
+{/* <Link to={`/movie/${movie.imdbID}`}>
+                More
+              </Link> */}
 
           
             </div>
