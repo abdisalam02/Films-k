@@ -14,7 +14,7 @@ const URL = 'https://www.omdbapi.com/';
 function App() {
   const [movies, setMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
-  const[info, setInfo] = useState([]);
+  // const[info, setInfo] = useState([]);
 
   useEffect(() => {
     async function fetchMovies() {
@@ -23,12 +23,18 @@ function App() {
       const data = await response.json();
       // const movieResults = data.Search.filter((result) => result.Type === "movie");
       if (data.Search) {
-        const movies = data.Search.slice(0, 10);
+        const movies = await Promise.all(data.Search.slice(0, 10).map(async (movie) => {
+          const url = `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=${KEY}`;
+          const response = await fetch(url);
+          const data = await response.json();
+          return data;
+        }));
         setMovies(movies);
       }
       
     }
     fetchMovies();
+
   }, []);
   const SearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -40,10 +46,21 @@ function App() {
       const url = `${URL}?s=${searchTerm}&apikey=${KEY}`;
       const response = await fetch(url);
       const data = await response.json();
+
       if (data.Search) {
-        const movies = data.Search;
-        setMovies(movies);
+
+        const movies = await Promise.all(data.Search.map(async (movie) => {
+        const movieUrl = `${URL}?i=${movie.imdbID}&apikey=${KEY}`;
+        const movieResponse = await fetch(movieUrl);
+        const movieData = await movieResponse.json();
+        return movieData;
+
+      }));
+
+      setMovies(movies);
+
       } else {
+        
         setMovies([]);
       }
     }

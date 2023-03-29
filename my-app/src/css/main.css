@@ -84,6 +84,10 @@ a {
   height: 450px;
 }
 
+.movie h4 {
+  font-weight: bold;
+}
+
 .info {
   color: #ffffff;
   justify-content: center;

@@ -7,14 +7,14 @@ function MovieList({ movies, searchTerm }) {
     console.log(searchTerm);
 
     const handleImageError = (event) => {
-        // Setter en placeholder image vis moviecard ikke har et bilde.
+        // Setter en placeholder image vis filmet ikke har et bilde.
         event.target.src = PlaceholderImage;
       };
 
     //   const filteredMovies = movies.filter(movie => movie.Type === 'movie');
   return (
     <>
-      <h1 className='results'>"{searchTerm}"</h1>
+      <h1 className='results'>{searchTerm}</h1>
       <div className='container'>
         {movies.map((movie) => (
           <div key={movie.imdbID} className="movie">
@@ -27,6 +27,10 @@ function MovieList({ movies, searchTerm }) {
               <h4>{movie.Title}</h4>
               <p>Year: {movie.Year}</p>
               <p>Type: {movie.Type}</p>
+              <p>Genre: {movie.Genre}</p>
+              <p>Directors: {movie.Director}</p>
+              <p>Actors: {movie.Actors}</p>
+              <p>Awards: {movie.Awards}</p>
               {/* <Link to={`/movie/${movie.imdbID}`}>More</Link> */}
               {/* <Link to={`/movie/${movie.imdbID}`}>
   <MovieProfile movieId={movie.imdbID} />
